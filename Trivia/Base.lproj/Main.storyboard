@@ -39,56 +39,52 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-5A-CX9">
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-5A-CX9">
                                 <rect key="frame" x="59" y="520" width="275" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.81253897900484051" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerOneClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="hqX-Sj-lRs"/>
+                                    <action selector="answerButtonClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="pku-oN-UY1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-gn-z2O">
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-gn-z2O">
                                 <rect key="frame" x="59" y="588" width="275" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.81253897900000005" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerTwoClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="ue4-JN-tWY"/>
+                                    <action selector="answerButtonClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="BXJ-KL-dbG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-h9-irf">
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-h9-irf">
                                 <rect key="frame" x="59" y="655" width="275" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.81253897900000005" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerThreeClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="bfD-ma-Xhh"/>
+                                    <action selector="answerButtonClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="RN8-Cu-GSx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWx-t9-iz0">
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWx-t9-iz0">
                                 <rect key="frame" x="59" y="723" width="275" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.81253897900000005" alpha="0.57999999999999996" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerFourClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="yte-fM-fpC"/>
+                                    <action selector="answerButtonClick:" destination="e1g-Fd-HmF" eventType="touchUpInside" id="OzQ-GY-UF2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHU-xO-Ll1">
@@ -99,7 +95,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LR-kU-HKz">
-                                <rect key="frame" x="101" y="127" width="184" height="21"/>
+                                <rect key="frame" x="43" y="127" width="306" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -116,6 +112,7 @@
                         <outlet property="answerTwoDisplay" destination="f0O-gn-z2O" id="ar7-Hk-eKf"/>
                         <outlet property="currentQuestion" destination="ncs-EL-ULi" id="VBM-Dz-vk1"/>
                         <outlet property="questionDisplay" destination="hiA-Rs-CPk" id="0Mq-h1-uwH"/>
+                        <outlet property="questionNumber" destination="ncs-EL-ULi" id="8i6-AS-uw8"/>
                         <outlet property="scoreDisplay" destination="VHU-xO-Ll1" id="cio-Vs-n0G"/>
                         <outlet property="topicLabel" destination="8LR-kU-HKz" id="vJf-ZR-uLP"/>
                     </connections>

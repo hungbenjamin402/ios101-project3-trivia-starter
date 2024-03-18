@@ -8,83 +8,79 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var questionBank: QuestionBank? // Not Initialize => Optional
-    private var scrollingThroughQuestionBank = 0
+    private var questions: [TriviaQuestion] = []
+    private var currentQuestionIndex = 0
     private var userScore = 0
     
+    @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
     @IBOutlet weak var topicLabel: UILabel!
-    
     @IBOutlet weak var questionDisplay: UITextView!
     @IBOutlet weak var answerOneDisplay: UIButton!
     @IBOutlet weak var answerTwoDisplay: UIButton!
     @IBOutlet weak var answerThreeDisplay: UIButton!
     @IBOutlet weak var answerFourDisplay: UIButton!
-    
     @IBOutlet weak var scoreDisplay: UILabel!
-    
-    private var totalQuestions = QuestionBank.access.count
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scoreDisplay.text = "Score: \(userScore)"
-        
-        if scrollingThroughQuestionBank < totalQuestions {
-            if !QuestionBank.access.isEmpty {
-                questionBank = QuestionBank.access[scrollingThroughQuestionBank]
-                
-                currentQuestion.text = "Question \(scrollingThroughQuestionBank)/\(totalQuestions)"
-                
-                
-                if let topic = questionBank?.topic {
-                    topicLabel.text = "Topic: \(topic)"
+        fetchQuestions()
+    }
+    
+    private func fetchQuestions() {
+        fetchTriviaQuestions { [weak self] questions in
+            DispatchQueue.main.async {
+                if let questions = questions {
+                    self?.questions = questions
+                    self?.currentQuestionIndex = 0
+                    self?.updateUI()
                 }
-                
-                questionDisplay.text = questionBank?.question
-                
-                answerOneDisplay.setTitle(questionBank?.pickAnswer[0], for: .normal)
-                answerTwoDisplay.setTitle(questionBank?.pickAnswer[1], for: .normal)
-                answerThreeDisplay.setTitle(questionBank?.pickAnswer[2], for: .normal)
-                answerFourDisplay.setTitle(questionBank?.pickAnswer[3], for: .normal)
-                
             }
         }
-        else {
-            scrollingThroughQuestionBank = 0
-            self.viewDidLoad()
+    }
+    
+    private func updateUI() {
+        if currentQuestionIndex < questions.count {
+            let currentQuestion = questions[currentQuestionIndex]
+            questionNumber.text = "Question \(currentQuestionIndex + 1)/\(questions.count)"
+            topicLabel.text = "Category: \(currentQuestion.category)"
+            questionDisplay.text = currentQuestion.question.decodingHTMLEntities()
+            
+            let answers = [currentQuestion.correct_answer] + currentQuestion.incorrect_answers
+            // let shuffledAnswers = answers.shuffled()
+            
+            answerOneDisplay.setTitle(answers[0].decodingHTMLEntities(), for: .normal)
+            answerTwoDisplay.setTitle(answers[1].decodingHTMLEntities(), for: .normal)
+            answerThreeDisplay.setTitle(answers[2].decodingHTMLEntities(), for: .normal)
+            answerFourDisplay.setTitle(answers[3].decodingHTMLEntities(), for: .normal)
+            
+            scoreDisplay.text = "Score: \(userScore)"
+        } else {
+            currentQuestionIndex = 0 // Or show a completion message, etc.
         }
     }
     
-    @IBAction func answerOneClick(_ sender: UIButton) {
-        if questionBank?.pickAnswer[0] == questionBank?.correctAnswer {
+    @IBAction func answerButtonClick(_ sender: UIButton) {
+        let currentQuestion = questions[currentQuestionIndex]
+        
+        if sender.title(for: .normal) == currentQuestion.correct_answer {
             userScore += 1
-            scrollingThroughQuestionBank += 1
         }
-        self.viewDidLoad()
+        currentQuestionIndex += 1
+        updateUI()
     }
-    
-    @IBAction func answerTwoClick(_ sender: UIButton) {
-        if questionBank?.pickAnswer[1] == questionBank?.correctAnswer {
-            userScore += 1
-            scrollingThroughQuestionBank += 1
-        }
-        self.viewDidLoad()
-    }
-    
-    @IBAction func answerThreeClick(_ sender: UIButton) {
-        if questionBank?.pickAnswer[2] == questionBank?.correctAnswer {
-            userScore += 1
-            scrollingThroughQuestionBank += 1
-        }
-        self.viewDidLoad()
-    }
-    
-    @IBAction func answerFourClick(_ sender: UIButton) {
-        if questionBank?.pickAnswer[3] == questionBank?.correctAnswer {
-            userScore += 1
-            scrollingThroughQuestionBank += 1
-        }
-        self.viewDidLoad()
+}
+
+extension String {
+    func decodingHTMLEntities() -> String {
+        guard let data = self.data(using: .utf8) else { return self }
+
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+
+        let decodedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil).string
+        return decodedString ?? self
     }
 }
