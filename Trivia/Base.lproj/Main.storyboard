@@ -105,6 +105,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Vd-ly-A6T">
+                                <rect key="frame" x="50" y="94" width="258" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Jg-Rj-4zS"/>
                         <color key="backgroundColor" red="0.58539766069999999" green="0.81348329779999995" blue="0.96314388510000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -117,6 +123,7 @@
                         <outlet property="currentQuestion" destination="ncs-EL-ULi" id="VBM-Dz-vk1"/>
                         <outlet property="questionDisplay" destination="hiA-Rs-CPk" id="0Mq-h1-uwH"/>
                         <outlet property="scoreDisplay" destination="VHU-xO-Ll1" id="cio-Vs-n0G"/>
+                        <outlet property="textFieldModfied" destination="7Vd-ly-A6T" id="tyb-Hu-cxJ"/>
                         <outlet property="topicLabel" destination="8LR-kU-HKz" id="vJf-ZR-uLP"/>
                     </connections>
                 </viewController>

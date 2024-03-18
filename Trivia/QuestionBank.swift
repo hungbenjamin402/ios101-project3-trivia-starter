@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 struct QuestionBank {
     let topic: String
     let question: String
@@ -31,3 +32,4 @@ struct QuestionBank {
                          correctAnswer: "Brazil")
     ]
 }
+*/
