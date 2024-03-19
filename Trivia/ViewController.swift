@@ -48,10 +48,22 @@ class ViewController: UIViewController {
             let answers = [currentQuestion.correct_answer] + currentQuestion.incorrect_answers
             let shuffledAnswers = answers.shuffled()
             
-            answerOneDisplay.setTitle(answers[0].decodingHTMLEntities(), for: .normal)
-            answerTwoDisplay.setTitle(answers[1].decodingHTMLEntities(), for: .normal)
-            answerThreeDisplay.setTitle(answers[2].decodingHTMLEntities(), for: .normal)
-            answerFourDisplay.setTitle(answers[3].decodingHTMLEntities(), for: .normal)
+            if currentQuestion.type == "multiple" {
+                answerFourDisplay.isHidden = false
+                answerThreeDisplay.isHidden = false
+                
+                answerOneDisplay.setTitle(shuffledAnswers[0].decodingHTMLEntities(), for: .normal)
+                answerTwoDisplay.setTitle(shuffledAnswers[1].decodingHTMLEntities(), for: .normal)
+                answerThreeDisplay.setTitle(shuffledAnswers[2].decodingHTMLEntities(), for: .normal)
+                answerFourDisplay.setTitle(shuffledAnswers[3].decodingHTMLEntities(), for: .normal)
+            }
+            else {
+                answerFourDisplay.isHidden = true
+                answerThreeDisplay.isHidden = true
+                
+                answerOneDisplay.setTitle(shuffledAnswers[0].decodingHTMLEntities(), for: .normal)
+                answerTwoDisplay.setTitle(shuffledAnswers[1].decodingHTMLEntities(), for: .normal)
+            }
             
             scoreDisplay.text = "Score: \(userScore)"
         } else {
