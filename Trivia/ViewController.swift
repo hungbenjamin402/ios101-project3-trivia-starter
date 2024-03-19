@@ -45,9 +45,8 @@ class ViewController: UIViewController {
             questionNumber.text = "Question \(currentQuestionIndex + 1)/\(questions.count)"
             topicLabel.text = "Category: \(currentQuestion.category)"
             questionDisplay.text = currentQuestion.question.decodingHTMLEntities()
-            
             let answers = [currentQuestion.correct_answer] + currentQuestion.incorrect_answers
-            // let shuffledAnswers = answers.shuffled()
+            let shuffledAnswers = answers.shuffled()
             
             answerOneDisplay.setTitle(answers[0].decodingHTMLEntities(), for: .normal)
             answerTwoDisplay.setTitle(answers[1].decodingHTMLEntities(), for: .normal)

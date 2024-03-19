@@ -24,7 +24,7 @@ struct TriviaResponse: Decodable {
 
 // Function to fetch and parse trivia questions
 func fetchTriviaQuestions(completion: @escaping ([TriviaQuestion]?) -> Void) {
-    let urlString = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
+    let urlString = "https://opentdb.com/api.php?amount=10&difficulty=easy"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         completion(nil)
