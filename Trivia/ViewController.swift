@@ -67,7 +67,8 @@ class ViewController: UIViewController {
             
             scoreDisplay.text = "Score: \(userScore)"
         } else {
-            currentQuestionIndex = 0 // Or show a completion message, etc.
+            fetchQuestions()
+            currentQuestionIndex = 0
         }
     }
     
